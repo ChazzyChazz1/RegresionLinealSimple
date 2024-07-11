@@ -9,9 +9,9 @@ def solicitar_datos():
     ventas = []
     ganancias = []
     for i in range(6):
-        print(f"Mes {i+1}:")
-        venta = float(input(f"Ingrese las ventas del mes {i+1}/6: "))
-        ganancia = float(input(f"Ingrese las ganancias del mes {i+1}/6 en soles: "))
+        print(f"{i+1}° Mes:")
+        venta = float(input(f"Ingrese la cantidad de ventas del mes {i+1}/6: "))
+        ganancia = float(input(f"Ingrese la ganancia total del mes {i+1}/6 en soles: "))
         ventas.append(venta)
         ganancias.append(ganancia)
     return ventas, ganancias
@@ -43,10 +43,10 @@ ganancias_futuras = []
 for i in range(7, 9):
     venta_futura = predecir(m_ventas, b_ventas, i)
     ganancia_futura = predecir(m_ganancias, b_ganancias, i)
-    ventas_futuras.append(venta_futura)
-    ganancias_futuras.append(ganancia_futura)
+    ventas_futuras.append(int(round(venta_futura, 0)))
+    ganancias_futuras.append(round(ganancia_futura, 1))
 
 for i in range(2):
-    print(f"Predicción para el mes {7+i}:")
-    print(f"  Ventas: {ventas_futuras[i]:.2f}")
-    print(f"  Ganancias: {ganancias_futuras[i]:.2f} soles")
+    print(f"Predicción para el {7+i}° mes:")
+    print(f"  Ventas Aproximadas: {ventas_futuras[i]}")
+    print(f"  Ganancias Aproximadas: {ganancias_futuras[i]} soles")
